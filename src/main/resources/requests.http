@@ -1,16 +1,25 @@
-### Public
+### Public (sin token)
 GET http://localhost:8081/public/health
 
-### List rules
+### List rules (token válido: cualquier usuario)
 GET http://localhost:8081/api/rules
 Authorization: Bearer {{token}}
 
-### Create (Admin)
+### Get by id (token válido)
+GET http://localhost:8081/api/rules/1
+Authorization: Bearer {{token}}
+
+### Create (solo ADMIN)
 POST http://localhost:8081/api/rules
 Authorization: Bearer {{admin_token}}
 Content-Type: application/json
 
 {
   "name": "Rule A",
-  "description": "Test"
+  "description": "Test",
+  "isActive": true
 }
+
+### Toggle (solo ADMIN)
+PATCH http://localhost:8081/api/rules/1/toggle
+Authorization: Bearer {{admin_token}}
