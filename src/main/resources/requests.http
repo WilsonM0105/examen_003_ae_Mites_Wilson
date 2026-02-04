@@ -1,0 +1,16 @@
+### Public
+GET http://localhost:8081/public/health
+
+### List rules
+GET http://localhost:8081/api/rules
+Authorization: Bearer {{token}}
+
+### Create (Admin)
+POST http://localhost:8081/api/rules
+Authorization: Bearer {{admin_token}}
+Content-Type: application/json
+
+{
+  "name": "Rule A",
+  "description": "Test"
+}
